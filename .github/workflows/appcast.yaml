@@ -15,3 +15,21 @@ jobs:
     permissions:
       pages: write
       id-token: write
+
+  trigger-rebuild:
+    needs: call-workflow
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main  # Explicitly checkout the main branch
+
+      - name: Create empty commit
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git commit --allow-empty -m "Trigger GitHub Pages rebuild"
+          git push
