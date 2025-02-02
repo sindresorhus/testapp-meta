@@ -10,7 +10,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: sindresorhus/appcast-workflow/.github/workflows/appcast.yml@6aab4f2a093f89e018bc9718b479a6cc9fbfe1e6
+    uses: sindresorhus/appcast-workflow/.github/workflows/appcast.yml@ddde9bbbc3118a8bcb0c1fe75a16afbcf568e27b
     secrets: inherit
     permissions:
       pages: write
